@@ -2,15 +2,21 @@ package main
 
 import "fmt"
 
-func zero(x *int) {
-	*x = 0
+func swap(x *int, y *int) {
+	tmp := new(int)
+	*tmp = *x
+	*x = *y
+	*y = *tmp
 }
 
 func main() {
 	x := 5
-	zero(&x)
-	y := new(int)
-	zero(y)
-	fmt.Println(x)
-	fmt.Println(*y)
+	y := 10
+	fmt.Println("Before swaping")
+	fmt.Println("x ", x)
+	fmt.Println("y ", y)
+	swap(&x, &y)
+	fmt.Println("x ", x)
+	fmt.Println("y ", y)
+
 }
